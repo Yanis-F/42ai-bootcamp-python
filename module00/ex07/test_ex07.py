@@ -1,3 +1,4 @@
+import pytest
 from filterwords import filter_words
 
 
@@ -6,11 +7,9 @@ def test_empty():
 
 
 def test_length_zero():
-    try:
+    with pytest.raises(Exception) as e:
         filter_words(["./filterwords.py", "Hello world", "0"])
-        assert False and "Should have thrown"
-    except Exception:
-        pass
+
 
 
 def test_length_one():
@@ -19,27 +18,20 @@ def test_length_one():
 
 
 def test_length_negative():
-    try:
+    with pytest.raises(Exception) as e:
         filter_words(["./filterwords.py", "Hello world", "-1"])
-        assert False and "Should have thrown"
-    except Exception:
-        pass
 
 
 def test_too_few_args():
-    try:
+    with pytest.raises(Exception) as e:
         filter_words(["./filterwords.py", "Hello world"])
-        assert False and "Should have thrown"
-    except Exception:
-        pass
+
 
 
 def test_too_much_args():
-    try:
+    with pytest.raises(Exception) as e:
         filter_words(["./filterwords.py", "Hello", "world", "3"])
-        assert False and "Should have thrown"
-    except Exception:
-        pass
+
 
 
 def test_plausible_example():
