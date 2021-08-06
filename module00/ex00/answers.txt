@@ -1,0 +1,5 @@
+pip list
+pip list
+pip show numpy
+pip search tesseract           # NOTE: Doesn't work anymore, but I assume it was the expected answer. see https://stackoverflow.com/a/65485498
+pip freeze > requirements.txt
